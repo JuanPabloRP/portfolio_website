@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 //, useRef, useLayoutEffect
 import { HiMenu, HiX, HiOutlineBadgeCheck } from 'react-icons/hi';
 import PropTypes from 'prop-types';
+//import styled from '@emotion/styled';
 
 const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 	const [activeSection, setActiveSection] = useState('');
@@ -53,12 +54,17 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 	};
 	//
 
+	/*
+	const H3Styled = styled.h3`
+		
+	`;
+	*/
 	return (
 		<nav
 			ref={navbarRef}
 			className={`bg-black text-white p-3 w-full sticky top-0 z-50 md:flex md:content-center md:justify-evenly md:py-2`}
 		>
-			<div className="w-full flex justify-between content-center  text-lg py-2 md:w-full ">
+			<div className="w-full flex justify-between content-center  text-lg py-2 md:w-full md:py-3">
 				<h3 className="text-blue w-full flex space-x-1">
 					<span className="">JPRP</span>
 					<HiOutlineBadgeCheck className="h-auto w-5" />
@@ -100,7 +106,9 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 							<li
 								key={route}
 								className={`py-1 md:inline  ${
-									activeSection === route ? 'text-pink' : 'text-blue'
+									activeSection === route
+										? 'text-pink border-b-pink border-solid border-b-2'
+										: 'text-blue'
 								}`}
 							>
 								<a
