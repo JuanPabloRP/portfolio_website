@@ -5,6 +5,7 @@ import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
 
+
 const Home = () => {
 	const [openNavbar, setOpenNavbar] = useState(false);
 	const [NAVBAR_HEIGHT, setNavbarHeight] = useState(0);
@@ -35,16 +36,13 @@ const Home = () => {
 			/>
 
 			<main className={``}>
-				<HeaderStyled
-					NAVBAR_HEIGHT={NAVBAR_HEIGHT}
-					className="m-4"
-				></HeaderStyled>
+				<HeaderStyled NAVBAR_HEIGHT={NAVBAR_HEIGHT}></HeaderStyled>
 
-				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT} className="m-4"></About>
+				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT}></About>
 
-				<Projects NAVBAR_HEIGHT={NAVBAR_HEIGHT} className="m-4"></Projects>
+				<Projects NAVBAR_HEIGHT={NAVBAR_HEIGHT}></Projects>
 
-				<Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT} className="m-4"></Contact>
+				<Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT}></Contact>
 			</main>
 		</div>
 	);
