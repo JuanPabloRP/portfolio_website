@@ -1,8 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-//, useRef, useLayoutEffect
+import styled from '@emotion/styled';
 import { HiMenu, HiX, HiOutlineBadgeCheck } from 'react-icons/hi';
 import PropTypes from 'prop-types';
-//import styled from '@emotion/styled';
+// useRef, useLayoutEffect
+import {
+	PRIMARY_COLOR,
+	SECUNDARY_COLOR,
+	LIGHT_COLOR,
+	DARK_COLOR,
+} from '../../styles/style';
 
 const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 	const [activeSection, setActiveSection] = useState('');
@@ -52,19 +58,77 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 		const section = document.getElementById(route);
 		section.scrollIntoView({ behavior: 'smooth' });
 	};
+
+	//
+	// I added this because when you click on an anchor, I need that section to be below the navbar
+	const ADDITIONAL_SCROLL = 150;
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const headerSection = document.getElementById('header');
+			const aboutSection = document.getElementById('about');
+			const projectsSection = document.getElementById('projects');
+			const contactSection = document.getElementById('contact');
+
+			const scrollPosition = window.scrollY;
+
+			if (
+				(scrollPosition >= headerSection.offsetTop || scrollPosition >= 0) &&
+				scrollPosition + ADDITIONAL_SCROLL < aboutSection.offsetTop
+			) {
+				setActiveSection('header');
+			} else if (
+				scrollPosition + ADDITIONAL_SCROLL >= aboutSection.offsetTop &&
+				scrollPosition + ADDITIONAL_SCROLL < projectsSection.offsetTop
+			) {
+				setActiveSection('about');
+			} else if (
+				scrollPosition + ADDITIONAL_SCROLL >= projectsSection.offsetTop &&
+				scrollPosition + ADDITIONAL_SCROLL < contactSection.offsetTop
+			) {
+				setActiveSection('projects');
+			} else if (
+				scrollPosition + ADDITIONAL_SCROLL >=
+				contactSection.offsetTop
+			) {
+				setActiveSection('contact');
+			} else {
+				setActiveSection('');
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
 	//
 
-	/*
-	const H3Styled = styled.h3`
-		
+	// ------------- STYLES -----------------
+
+	const NavbarStyled = styled.nav`
+		box-sizing: border-box;
+		background-color: ${DARK_COLOR};
+		color: ${LIGHT_COLOR};
+		padding: 10px;
+		width: 100%;
+		position: sticky;
+		top: 0;
+		z-index: 50;
+
+		/* mid screen styles*/
+		@media (min-width: 768px) {
+			display: flex;
+			justify-content: space-evenly;
+			align-content: center;
+			padding: 8px;
+		}
 	`;
-	*/
+
 	return (
-		<nav
-			ref={navbarRef}
-			className={`bg-black text-white p-3 w-full sticky top-0 z-50 md:flex md:content-center md:justify-evenly md:py-2`}
-		>
-			<div className="w-full flex justify-between content-center  text-lg py-2 md:w-full md:py-3">
+		<NavbarStyled ref={navbarRef}>
+			<div className="nav__leftContainer w-full flex justify-between content-center  text-lg py-2 md:w-full md:py-3">
 				<h3 className="text-blue w-full flex space-x-1">
 					<span className="">JPRP</span>
 					<HiOutlineBadgeCheck className="h-auto w-5" />
@@ -74,7 +138,8 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 					{open === false ? <HiMenu /> : <HiX />}
 				</button>
 			</div>
-			<div className="flex content-center justify-center pr-3">
+
+			<div className="nav__right flex content-center justify-center pr-3">
 				{open === false ? (
 					<ul
 						className={`py-3 content-center hidden md:inline md:w-full md:justify-between md:space-x-5`}
@@ -122,7 +187,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 					</ul>
 				)}
 			</div>
-		</nav>
+		</NavbarStyled>
 	);
 };
 
