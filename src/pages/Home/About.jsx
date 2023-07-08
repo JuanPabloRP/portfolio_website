@@ -20,12 +20,15 @@ const About = ({ NAVBAR_HEIGHT }) => {
 	`;
 
 	return (
-		<About id="about" className="flex justify-center items-start py-3 md:items-center ">
-			<article className="border-white border-solid border-[1px] rounded-md mx-2  p-3 max-w-4xl">
-				<h2 className="text-4xl text-center font-black uppercase text-black p-5">
+		<About
+			id="about"
+			className="flex justify-center items-start py-3 md:items-center "
+		>
+			<article className="border-white border-solid border-[1px] rounded-md mx-2  p-3 max-w-4xl md:p-20">
+				<h2 className="text-4xl text-center font-black uppercase text-black p-5 tracking-wide">
 					About me
 				</h2>
-				<p className="">
+				<p>
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem
 					maiores qui illo, aspernatur, corporis perspiciatis eius harum,
 					accusamus voluptate doloribus quidem! Aut, obcaecati earum nesciunt

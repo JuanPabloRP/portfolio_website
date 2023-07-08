@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 
-html, body {
+html,
+body {
   background: #000;
   scroll-behavior: smooth;
 }
+
+/*
+::selection {
+  background-color: aqua;
+  color: #000;
+}
+*/
