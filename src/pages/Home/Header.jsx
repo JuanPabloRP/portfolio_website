@@ -10,10 +10,24 @@ const HeaderStyled = ({ NAVBAR_HEIGHT }) => {
 		& h2 {
 			text-transform: uppercase;
 			color: #000;
-			text-shadow: 0 0 30px #00adb5;
+			text-shadow: 0 0 5px #00adb5, 0 0 10px #00adb5;
 
 			& span:last-child {
 				color: white;
+
+				animation: changecolor 2s steps(17);
+			}
+
+			@keyframes changecolor {
+				from {
+					color: #000;
+					text-shadow: 0 0 3px #00adb5, 0 0 7px #fb2576;
+				}
+
+				to {
+					text-shadow: 0 0 3px #fb2576, 0 0 7px #00adb5;
+					color: #fff;
+				}
 			}
 		}
 
@@ -45,9 +59,9 @@ const HeaderStyled = ({ NAVBAR_HEIGHT }) => {
 	return (
 		<Header
 			id="header"
-			className=" flex content-center justify-center flex-col space-y-5"
+			className=" flex items-center justify-center flex-col space-y-5"
 		>
-			<h2 className="flex flex-wrap content-center justify-center text-center text-4xl w-auto h-auto md:text-5xl lg:text-6xl">
+			<h2 className=" flex flex-wrap content-center justify-center text-center text-4xl w-auto h-auto max-w-6xl md:text-5xl lg:text-6xl md:mx-auto ">
 				<span className="md:pr-4">Hey! I am </span>
 				<span>Juan Pablo Roldan Patiño</span>
 			</h2>
