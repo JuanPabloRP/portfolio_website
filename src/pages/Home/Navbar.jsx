@@ -107,27 +107,11 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 
 	// ------------- STYLES -----------------
 
-	const NavbarStyled = styled.nav`
-		box-sizing: border-box;
-		background-color: ${DARK_COLOR};
-		color: ${LIGHT_COLOR};
-		padding: 10px;
-		width: 100%;
-		position: sticky;
-		top: 0;
-		z-index: 50;
-
-		/* mid screen styles*/
-		@media (min-width: 768px) {
-			display: flex;
-			justify-content: space-evenly;
-			align-content: center;
-			padding: 8px;
-		}
-	`;
-
 	return (
-		<NavbarStyled ref={navbarRef}>
+		<nav
+			ref={navbarRef}
+			className="box-border bg-black text-white p-3 w-full sticky top-0 z-50 md:flex md:justify-evenly md:content-center md:p-2"
+		>
 			<div className="nav__leftContainer w-full flex justify-between content-center  text-lg py-2 md:w-full md:py-3">
 				<h3 className="text-blue w-full flex space-x-1">
 					<span className="">JPRP</span>
@@ -187,7 +171,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 					</ul>
 				)}
 			</div>
-		</NavbarStyled>
+		</nav>
 	);
 };
 
@@ -198,70 +182,3 @@ Navbar.propTypes = {
 
 export default Navbar;
 
-/*
-	// I added this because when you click on an anchor, I need that section to be below the navbar
-	const ADDITIONAL_SCROLL = 150;
-
-	useEffect(() => {
-		const handleScroll = () => {
-			const headerSection = document.getElementById('header');
-			const aboutSection = document.getElementById('about');
-			const projectsSection = document.getElementById('projects');
-			const contactSection = document.getElementById('contact');
-
-			const scrollPosition = window.scrollY;
-
-			if (
-				(scrollPosition >= headerSection.offsetTop || scrollPosition >= 0) &&
-				scrollPosition + ADDITIONAL_SCROLL < aboutSection.offsetTop
-			) {
-				setActiveSection('header');
-			} else if (
-				scrollPosition + ADDITIONAL_SCROLL >= aboutSection.offsetTop &&
-				scrollPosition + ADDITIONAL_SCROLL < projectsSection.offsetTop
-			) {
-				setActiveSection('about');
-			} else if (
-				scrollPosition + ADDITIONAL_SCROLL >= projectsSection.offsetTop &&
-				scrollPosition + ADDITIONAL_SCROLL < contactSection.offsetTop
-			) {
-				setActiveSection('projects');
-			} else if (
-				scrollPosition + ADDITIONAL_SCROLL >=
-				contactSection.offsetTop
-			) {
-				setActiveSection('contact');
-			} else {
-				setActiveSection('');
-			}
-		};
-
-		window.addEventListener('scroll', handleScroll);
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
-	*/
-
-/*
-	//para saber la altura del navbar
-	const navbarRef = useRef(null);
-
-	useLayoutEffect(() => {
-		const handleNavbarHeight = () => {
-			const navbarHeight = navbarRef.current.offsetHeight;
-			setNavbarHeight(navbarHeight);
-			console.log('altura navbar ' + navbarHeight);
-		};
-
-		handleNavbarHeight();
-
-		window.addEventListener('resize', handleNavbarHeight);
-
-		return () => {
-			window.removeEventListener('resize', handleNavbarHeight);
-		};
-	}),
-		[navbarRef];
-	*/
