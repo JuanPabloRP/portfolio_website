@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import HeaderStyled from './Header';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
 	const [openNavbar, setOpenNavbar] = useState(false);
@@ -14,12 +15,11 @@ const Home = () => {
 
 	const handleNavbarHeight = (height) => setNavbarHeight(height);
 
-	/*
 	useEffect(() => {
-		console.log('Home ' + navbarHeight);
+		console.log('Home ' + NAVBAR_HEIGHT);
 	});
 
-	
+	/*
 	const handleNavLinkClick = (e) => {
 		e.preventDefault();
 		const targetId = e.target.getAttribute('href');
@@ -30,19 +30,33 @@ const Home = () => {
 
 	return (
 		<div className="bg-black text-white">
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="dark"
+				toastClassName="bg-black border border-pink"
+				progressClassName="bg-pink"
+			/>
 			<Navbar
 				onMeasure={handleNavbarHeight}
 				handleOpenNavbar={handleOpenNavbar}
 			/>
 
 			<main className={``}>
-				<HeaderStyled NAVBAR_HEIGHT={NAVBAR_HEIGHT}></HeaderStyled>
+				<HeaderStyled NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
-				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT}></About>
+				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
-				<Projects NAVBAR_HEIGHT={NAVBAR_HEIGHT}></Projects>
+				<Projects NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
-				<Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT}></Contact>
+				<Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 			</main>
 		</div>
 	);
