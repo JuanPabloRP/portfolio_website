@@ -1,24 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
-import styled from '@emotion/styled';
 import { HiMenu, HiX, HiOutlineBadgeCheck } from 'react-icons/hi';
 import PropTypes from 'prop-types';
-// useRef, useLayoutEffect
-import {
-	PRIMARY_COLOR,
-	SECUNDARY_COLOR,
-	LIGHT_COLOR,
-	DARK_COLOR,
-} from '../../styles/style';
+
 
 const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 	const [activeSection, setActiveSection] = useState('');
 
 	const navbarRef = useRef(null);
 
+	//DO NOT add a dependency, just [] because this only needs to run the first time
 	useEffect(() => {
-		const height = navbarRef.current.getBoundingClientRect().height || 68;
+		const height = 68 || navbarRef?.current?.getBoundingClientRect()?.height;
 		onMeasure(height);
-		console.log(height);
+		//console.log(height);
+		setActiveSection('header');
 	}, []);
 
 	//estado para manejar cuando esta abierto el navbar (mobile)
@@ -50,6 +45,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 	];
 
 	//
+
 	const handleNavLinkClick = (event, route) => {
 		event.preventDefault();
 		setActiveSection(route);
@@ -61,7 +57,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 
 	//
 	// I added this because when you click on an anchor, I need that section to be below the navbar
-	const ADDITIONAL_SCROLL = 150;
+	const ADDITIONAL_SCROLL = 69;
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -103,9 +99,6 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
-	//
-
-	// ------------- STYLES -----------------
 
 	return (
 		<nav
@@ -114,7 +107,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 		>
 			<div className="nav__leftContainer w-full flex justify-between content-center  text-lg py-2 md:w-full md:py-3">
 				<h3 className="text-blue w-full flex space-x-1">
-					<span className="">JPRP</span>
+					<span className="">Juan Pablo</span>
 					<HiOutlineBadgeCheck className="h-auto w-5" />
 				</h3>
 
@@ -181,4 +174,3 @@ Navbar.propTypes = {
 };
 
 export default Navbar;
-
