@@ -9,7 +9,7 @@ const Project = ({ image, name, tags, links }) => {
 	`;
 
 	return (
-		<li className="p-3">
+		<li key={name} className="p-3">
 			<ArticleStyled className="max-w-sm bg-dark border border-white rounded-lg shadow ">
 				<img
 					className="rounded-xl pt-2 px-2"
@@ -22,16 +22,19 @@ const Project = ({ image, name, tags, links }) => {
 						{name}
 					</h3>
 
-					<div className="flex flex-wrap items-center justify-around py-3 ">
-						{tags.map((name) => (
-							<Tag key={name} name={name} />
-						))}
+					<div className="flex flex-wrap space-x-2 items-center justify-center opacity-40">
+						<span className="text-blue">Made with: </span>
+						{tags
+							? tags.map(({ id, tag }) => <Tag key={id} tag={tag} />)
+							: null}
 					</div>
 
-					<div className="flex items-center justify-around py-2 space-x-1 space-y-1">
-						{links.map(({ id, name, link }) => (
-							<ButtonCard key={id} name={name} link={link} />
-						))}
+					<div className="flex items-center justify-around py-2 ">
+						{links
+							? links.map(({ id, name, link }) => (
+									<ButtonCard key={id} name={name} link={link} />
+							))
+							: null}
 					</div>
 				</div>
 			</ArticleStyled>

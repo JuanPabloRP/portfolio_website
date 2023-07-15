@@ -1,77 +1,128 @@
+import { nanoid } from 'nanoid';
+import imgProjectPortfolio from '../assets/img/imgProjectPortfolio.webp';
+import imgFilantropiaEafit from '../assets/img/imgFilantropiaEafit.webp';
+import imgCrudLogin from '../assets/img/imgCrudLogin.webp';
+import imgGestionProjectBack from '../assets/img/imgGestionProjectBack.webp';
+import imgGestionProyectos from '../assets/img/imgGestionProyectos.webp';
+import imgProjectCiclo3 from '../assets/img/imgProjectCiclo3.webp';
+
 export const projects = [
 	{
-		id: 1,
-		image:
-			'https://img.freepik.com/vector-gratis/diseno-fondo-abstracto-luces-neon_52683-44643.jpg?w=740&t=st=1688750768~exp=1688751368~hmac=b0a899b43ffeb486b830acacaccfa213977c9b0cf76ceaeb6c4f23f046a3bb26',
-		name: 'project numero 32 broki',
-		tags: ['html', 'css', 'javascript', 'react'],
+		id: nanoid(),
+		image: imgProjectPortfolio,
+		name: 'Portfolio Web',
+		tags: [
+			{ id: nanoid(), tag: 'React' },
+			{ id: nanoid(), tag: 'Tailwind' },
+			{ id: nanoid(), tag: 'Emotion' },
+		],
 		links: [
 			{
-				id: 1,
-				name: 'web',
+				id: nanoid(),
+				name: 'Website',
 				link: '#',
 			},
 			{
-				id: 2,
-				name: 'code',
-				link: '#',
-			},
-			{
-				id: 3,
-				name: 'tres',
-				link: '#',
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/JuanPabloRP/portfolio_website',
 			},
 		],
 	},
 	{
-		id: 2,
-		image:
-			'https://img.freepik.com/vector-gratis/diseno-fondo-abstracto-luces-neon_52683-44643.jpg?w=740&t=st=1688750768~exp=1688751368~hmac=b0a899b43ffeb486b830acacaccfa213977c9b0cf76ceaeb6c4f23f046a3bb26',
-		name: 'project',
-		tags: ['html'],
+		id: nanoid(),
+		image: imgFilantropiaEafit,
+		name: 'Filantropia EAFIT',
+		tags: [
+			{ id: nanoid(), tag: 'Next JS' },
+			{ id: nanoid(), tag: 'React' },
+			{ id: nanoid(), tag: 'Sass' },
+			{ id: nanoid(), tag: 'Bootstrap' },
+		],
 		links: [
-			{
-				id: 1,
+			/* {
+				id: nanoid(),
 				name: 'web',
 				link: '#',
-			},
+			}, */
 			{
-				id: 2,
-				name: 'code',
-				link: '#',
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/nodo-eafit-frontend/gamma-equipo-2',
 			},
 		],
 	},
 	{
-		id: 3,
-		image:
-			'https://img.freepik.com/vector-gratis/diseno-fondo-abstracto-luces-neon_52683-44643.jpg?w=740&t=st=1688750768~exp=1688751368~hmac=b0a899b43ffeb486b830acacaccfa213977c9b0cf76ceaeb6c4f23f046a3bb26',
-		name: 'project',
-		tags: ['html', 'css', 'javascript', 'react', 'css', 'javascript', 'react'],
+		id: nanoid(),
+		image: imgCrudLogin,
+		name: 'CRUD Login',
+		tags: [
+			{ id: nanoid(), tag: 'C#' },
+			{ id: nanoid(), tag: 'Windows Forms' },
+			{ id: nanoid(), tag: 'SQLite' },
+		],
 		links: [
 			{
-				id: 1,
-				name: 'website',
-				link: '#',
-			},
-			{
-				id: 2,
-				name: 'code',
-				link: '#',
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/JaimeJaner/P_FINAL_CRUD-LOGIN_H_P_2',
 			},
 		],
 	},
 	{
-		id: 4,
-		image:
-			'https://img.freepik.com/vector-gratis/diseno-fondo-abstracto-luces-neon_52683-44643.jpg?w=740&t=st=1688750768~exp=1688751368~hmac=b0a899b43ffeb486b830acacaccfa213977c9b0cf76ceaeb6c4f23f046a3bb26',
-		name: 'project',
-		tags: ['html', 'css', 'javascript', 'react'],
+		id: nanoid(),
+		image: imgGestionProjectBack,
+		name: 'Gestión de proyectos backend',
+		tags: [
+			{ id: nanoid(), tag: 'Node js' },
+			{ id: nanoid(), tag: 'Express' },
+			{ id: nanoid(), tag: 'GraphQL' },
+			{ id: nanoid(), tag: 'Mongo DB' },
+			{ id: nanoid(), tag: 'TypeScript' },
+			{ id: nanoid(), tag: 'Apollo' },
+		],
 		links: [
 			{
-				id: 1,
-				name: 'web',
-				link: '#',
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/Devtambulos/GestionProyectos-Back',
+			},
+		],
+	},
+	{
+		id: nanoid(),
+		image: imgGestionProyectos,
+		name: 'Gestión de proyectos',
+		tags: [
+			{ id: nanoid(), tag: 'React' },
+			{ id: nanoid(), tag: 'Tailwind' },
+			{ id: nanoid(), tag: 'JWT' },
+			{ id: nanoid(), tag: 'Material IU' },
+			{ id: nanoid(), tag: 'Apollo' },
+		],
+		links: [
+			{
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/Devtambulos/GestionProyectosInvestigacion',
+			},
+		],
+	},
+	{
+		id: nanoid(),
+		image: imgProjectCiclo3,
+		name: 'Muestra de productos',
+		tags: [
+			{ id: nanoid(), tag: 'React' },
+			{ id: nanoid(), tag: 'Bootstrap' },
+			{ id: nanoid(), tag: 'ApiRest' },
+			{ id: nanoid(), tag: 'Axios' },
+		],
+		links: [
+			{
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/CuriDevs/project-ciclo3',
 			},
 		],
 	},
