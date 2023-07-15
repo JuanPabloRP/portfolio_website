@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
+import { BsLinkedin, BsGithub, BsWhatsapp } from 'react-icons/bs';
+import { DARK_COLOR } from '../../styles/style';
 
 const HeaderStyled = ({ NAVBAR_HEIGHT }) => {
 	const Header = styled.header`
@@ -9,7 +11,7 @@ const HeaderStyled = ({ NAVBAR_HEIGHT }) => {
 
 		& h2 {
 			text-transform: uppercase;
-			color: #000;
+			color: ${DARK_COLOR};
 			text-shadow: 0 0 5px #00adb5, 0 0 10px #00adb5;
 
 			& span:last-child {
@@ -20,7 +22,7 @@ const HeaderStyled = ({ NAVBAR_HEIGHT }) => {
 
 			@keyframes changecolor {
 				from {
-					color: #000;
+					color: ${DARK_COLOR};
 					text-shadow: 0 0 3px #00adb5, 0 0 7px #fb2576;
 				}
 
@@ -68,6 +70,34 @@ const HeaderStyled = ({ NAVBAR_HEIGHT }) => {
 			<p className="text-pink text-3xl text-center mx-auto lg:text-4xl">
 				Sofware Developer
 			</p>
+
+			<div className="flex  md:flex-row items-center justify-center py-5 space-x-4">
+				<a
+					className="text-blue hover:opacity-75 hover:scale-95"
+					href="https://www.linkedin.com/in/juan-pablo-rold%C3%A1n-pati%C3%B1o/"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<BsLinkedin className="w-8 h-8 md:w-9 md:h-9" />
+				</a>
+				<a
+					href="https://github.com/JuanPabloRP"
+					className="text-pink hover:opacity-75 hover:scale-95"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<BsGithub className="w-8 h-8 md:w-9 md:h-9" />
+				</a>
+
+				<a
+					className="text-white hover:opacity-75 hover:scale-95"
+					href="https://wa.link/1kjv96"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<BsWhatsapp className="w-8 h-8 md:w-9 md:h-9" />
+				</a>
+			</div>
 		</Header>
 	);
 };
