@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types';
 
-const Tag = ({ name }) => {
+const Tag = ({ tag }) => {
 	return (
-		<span className="m-1 px-2 py-0.5 rounded-3xl border border-white bg-black text-white opacity-30 ml-1">
-			{name}
-		</span>
+		<span className="m-1 px-2 py-0.5  bg-black text-white  ml-1">{tag}</span>
 	);
 };
 
 Tag.propTypes = {
-	name: PropTypes.string.isRequired,
+	tag: PropTypes.string.isRequired,
 };
 
 export default Tag;
