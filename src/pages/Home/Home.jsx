@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Navbar from './Navbar';
 import HeaderStyled from './Header';
 import About from './About';
@@ -6,6 +6,7 @@ import Projects from './Projects';
 import Contact from './Contact';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 const Home = () => {
 	const [openNavbar, setOpenNavbar] = useState(false);
@@ -15,9 +16,9 @@ const Home = () => {
 
 	const handleNavbarHeight = (height) => setNavbarHeight(height);
 
-	useEffect(() => {
+	/* useEffect(() => {
 		console.log('Home ' + NAVBAR_HEIGHT);
-	});
+	}); */
 
 	/*
 	const handleNavLinkClick = (e) => {
@@ -41,15 +42,17 @@ const Home = () => {
 				draggable
 				pauseOnHover
 				theme="dark"
-				toastClassName="bg-black border border-pink"
+				toastClassName="bg-black border border-pink rounded-md p-2"
 				progressClassName="bg-pink"
 			/>
+
 			<Navbar
 				onMeasure={handleNavbarHeight}
 				handleOpenNavbar={handleOpenNavbar}
 			/>
 
 			<main className={``}>
+				
 				<HeaderStyled NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
 				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT} />

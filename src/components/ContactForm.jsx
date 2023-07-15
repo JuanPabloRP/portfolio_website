@@ -19,14 +19,14 @@ const ContactForm = () => {
 			progress: undefined,
 			theme: 'dark',
 		});
-		console.log(e);
+		//console.log(e);
 	};
 
 	const handleChange = (e) => {
 		const { target } = e;
 		const { name, value } = target;
 
-		console.log(values);
+		// console.log(values);
 
 		const newValues = {
 			...values,
@@ -50,6 +50,7 @@ const ContactForm = () => {
 					value={values.name}
 					onChange={handleChange}
 					required
+					autoComplete="off"
 				/>
 				<label
 					htmlFor="name"
@@ -68,6 +69,7 @@ const ContactForm = () => {
 					value={values.email}
 					onChange={handleChange}
 					required
+					autoComplete="off"
 				/>
 				<label
 					htmlFor="email"
@@ -79,7 +81,7 @@ const ContactForm = () => {
 
 			<button
 				type="submit"
-				className="text-white border border-white hover:bg-white hover:text-black focus:outline-none focus:ring-white focus:ring-1 focus:scale-x-105 text-center mr-2 mb-2   font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5"
+				className="text-white border border-white hover:bg-white hover:text-black focus:outline-none focus:ring-white focus:ring-1  text-center font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 transition-all ease-in duration-75"
 			>
 				Submit
 			</button>
