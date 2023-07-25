@@ -1,13 +1,9 @@
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 import { projects } from '../../data/projects';
 import Project from '../../components/Project';
 
-const Projects = ({ NAVBAR_HEIGHT }) => {
+const Projects = () => {
 	const Projects = styled.section`
-		scroll-margin-top: ${NAVBAR_HEIGHT}px;
-		min-height: calc(100vh - ${NAVBAR_HEIGHT}px);
-
 		& article {
 			box-shadow: inset 0px 0px 7px 0px #00adb5, 0px 0px 7px 0px #00adb5;
 		}
@@ -23,7 +19,7 @@ const Projects = ({ NAVBAR_HEIGHT }) => {
 			id="projects"
 			className="flex justify-center items-start py-3 md:items-center "
 		>
-			<article className="border-white border-solid border-[1px] rounded-md mx-2 px-3 py-5 w-screen max-w-4xl">
+			<article className="border-white border-solid border-[1px] rounded-md px-3 py-5 w-screen max-w-4xl">
 				<h2 className="text-4xl text-center font-black uppercase text-black p-5 tracking-wide ">
 					Projects
 				</h2>
@@ -50,10 +46,6 @@ const Projects = ({ NAVBAR_HEIGHT }) => {
 			</article>
 		</Projects>
 	);
-};
-
-Projects.propTypes = {
-	NAVBAR_HEIGHT: PropTypes.number.isRequired,
 };
 
 export default Projects;

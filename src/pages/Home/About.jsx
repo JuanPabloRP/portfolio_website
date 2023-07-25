@@ -1,13 +1,10 @@
-//import React from 'react';
 import styled from '@emotion/styled';
-import PropTypes from 'prop-types';
 import hello from '../../assets/svg/hello.svg';
 
-const About = ({ NAVBAR_HEIGHT }) => {
+const About = () => {
 	const About = styled.section`
 		box-sizing: border-box;
-		scroll-margin-top: ${NAVBAR_HEIGHT}px;
-		min-height: calc(100vh - ${NAVBAR_HEIGHT}px);
+
 		height: fit-content;
 
 		& article {
@@ -50,10 +47,6 @@ const About = ({ NAVBAR_HEIGHT }) => {
 			</article>
 		</About>
 	);
-};
-
-About.propTypes = {
-	NAVBAR_HEIGHT: PropTypes.number.isRequired,
 };
 
 export default About;

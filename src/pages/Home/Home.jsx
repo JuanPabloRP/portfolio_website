@@ -1,67 +1,98 @@
-import { useState } from 'react';
-import Navbar from './Navbar';
-import HeaderStyled from './Header';
-import About from './About';
-import Projects from './Projects';
-import Contact from './Contact';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import styled from '@emotion/styled';
+import { BsLinkedin, BsGithub, BsWhatsapp } from 'react-icons/bs';
+import { DARK_COLOR } from '../../styles/style';
 
 const Home = () => {
-	const [openNavbar, setOpenNavbar] = useState(false);
-	const [NAVBAR_HEIGHT, setNavbarHeight] = useState(0);
+	const Header = styled.header`
+		& h2 {
+			text-transform: uppercase;
+			color: ${DARK_COLOR};
+			text-shadow: 0 0 5px #00adb5, 0 0 10px #00adb5;
 
-	const handleOpenNavbar = () => setOpenNavbar(!openNavbar);
+			& span {
+				color: white;
+				animation: changecolor 2s steps(17);
+			}
 
-	const handleNavbarHeight = (height) => setNavbarHeight(height);
+			@keyframes changecolor {
+				from {
+					color: ${DARK_COLOR};
+					text-shadow: 0 0 3px #00adb5, 0 0 7px #fb2576;
+				}
 
-	/* useEffect(() => {
-		console.log('Home ' + NAVBAR_HEIGHT);
-	}); */
+				to {
+					text-shadow: 0 0 3px #fb2576, 0 0 7px #00adb5;
+					color: #fff;
+				}
+			}
+		}
 
-	/*
-	const handleNavLinkClick = (e) => {
-		e.preventDefault();
-		const targetId = e.target.getAttribute('href');
-		const targetElement = document.querySelector(targetId);
-		targetElement.scrollIntoView({ behavior: 'smooth' });
-	};
-	*/
+		& p {
+			display: block;
+			font-family: monospace;
+			white-space: nowrap;
+			border-right: 4px solid;
+			width: 17ch;
+			text-shadow: 0 0 30px #fb2576;
+			animation: typing 2s steps(17), blink 0.5s infinite step-end alternate;
+			overflow: hidden;
+			text-align: center;
+		}
+
+		@keyframes typing {
+			from {
+				width: 0;
+			}
+		}
+
+		@keyframes blink {
+			50% {
+				border-color: transparent;
+			}
+		}
+	`;
 
 	return (
-		<div className="bg-black text-white">
-			<ToastContainer
-				position="top-right"
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				theme="dark"
-				toastClassName="bg-black border border-pink rounded-md p-2"
-				progressClassName="bg-pink"
-			/>
+		<Header
+			id="header"
+			className=" flex items-center justify-center flex-col space-y-5 font-extrabold"
+		>
+			<h2 className=" flex flex-wrap content-center justify-center text-center text-4xl w-auto h-auto max-w-6xl md:text-5xl lg:text-6xl md:mx-auto ">
+				<span className="md:pr-4 ">Hey! I am </span>
+				<span>Juan Pablo Roldan Patiño</span>
+			</h2>
+			<p className="text-pink text-3xl text-center mx-auto lg:text-4xl">
+				Sofware Developer
+			</p>
 
-			<Navbar
-				onMeasure={handleNavbarHeight}
-				handleOpenNavbar={handleOpenNavbar}
-			/>
+			<div className="flex  md:flex-row items-center justify-center py-5 space-x-4">
+				<a
+					className="text-blue hover:opacity-75 hover:scale-95"
+					href="https://www.linkedin.com/in/juan-pablo-rold%C3%A1n-pati%C3%B1o/"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<BsLinkedin className="w-8 h-8 md:w-9 md:h-9" />
+				</a>
+				<a
+					href="https://github.com/JuanPabloRP"
+					className="text-pink hover:opacity-75 hover:scale-95"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<BsGithub className="w-8 h-8 md:w-9 md:h-9" />
+				</a>
 
-			<main className={``}>
-				
-				<HeaderStyled NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
-
-				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
-
-				<Projects NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
-
-				<Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
-			</main>
-		</div>
+				<a
+					className="text-white hover:opacity-75 hover:scale-95"
+					href="https://wa.link/1kjv96"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<BsWhatsapp className="w-8 h-8 md:w-9 md:h-9" />
+				</a>
+			</div>
+		</Header>
 	);
 };
 
