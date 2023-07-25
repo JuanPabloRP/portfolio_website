@@ -5,8 +5,30 @@ import imgCrudLogin from '../assets/img/imgCrudLogin.webp';
 import imgGestionProjectBack from '../assets/img/imgGestionProjectBack.webp';
 import imgGestionProyectos from '../assets/img/imgGestionProyectos.webp';
 import imgProjectCiclo3 from '../assets/img/imgProjectCiclo3.webp';
+import imgBackendEafitCode from '../assets/img/imgBackendEafitCode.webp';
 
 export const projects = [
+	{
+		id: nanoid(),
+		image: imgBackendEafitCode,
+		name: 'Backend Proyecto Sura',
+		tags: [
+			{ id: nanoid(), tag: 'JavaScript' },
+			{ id: nanoid(), tag: 'React' },
+			{ id: nanoid(), tag: 'Tailwind' },
+			{ id: nanoid(), tag: 'Java' },
+			{ id: nanoid(), tag: 'Spring' },
+			{ id: nanoid(), tag: 'Python' },
+			{ id: nanoid(), tag: 'More...' },
+		],
+		links: [
+			{
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/JuanPabloRP/eafit-backend',
+			},
+		],
+	},
 	{
 		id: nanoid(),
 		image: imgProjectPortfolio,
