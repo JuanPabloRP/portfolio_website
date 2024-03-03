@@ -5,8 +5,53 @@ import imgCrudLogin from '../assets/img/imgCrudLogin.webp';
 import imgGestionProjectBack from '../assets/img/imgGestionProjectBack.webp';
 import imgGestionProyectos from '../assets/img/imgGestionProyectos.webp';
 import imgProjectCiclo3 from '../assets/img/imgProjectCiclo3.webp';
+import imgProjectSura from '../assets/img/imgProjectSura.png';
+import imgProjectScoreFlix from '../assets/img/imgProjectScoreFlix.png';
 
 export const projects = [
+	{
+		id: nanoid(),
+		image: imgProjectScoreFlix,
+		name: 'ScoreFlix',
+		tags: [
+			{ id: nanoid(), tag: 'React JS' },
+			{ id: nanoid(), tag: 'Tailwind' },
+			{ id: nanoid(), tag: 'Node JS' },
+			{ id: nanoid(), tag: 'Express' },
+			{ id: nanoid(), tag: 'MongoDB' },
+		],
+		links: [
+			{
+				id: nanoid(),
+				name: 'Code',
+				link: '',
+			},
+			{
+				id: nanoid(),
+				name: 'Website',
+				link: 'https://score-flix.vercel.app/',
+			},
+		],
+	},
+	{
+		id: nanoid(),
+		image: imgProjectSura,
+		name: 'Prototipo para Sura',
+		tags: [
+			{ id: nanoid(), tag: 'React JS' },
+			{ id: nanoid(), tag: 'Tailwind' },
+			{ id: nanoid(), tag: 'Java' },
+			{ id: nanoid(), tag: 'Spring' },
+			{ id: nanoid(), tag: 'MongoDB' },
+		],
+		links: [
+			{
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/JuanPabloRP/eafit-backend.git',
+			},
+		],
+	},
 	{
 		id: nanoid(),
 		image: imgProjectPortfolio,
