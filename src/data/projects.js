@@ -24,7 +24,7 @@ export const projects = [
 			{
 				id: nanoid(),
 				name: 'Code',
-				link: '',
+				link: 'https://github.com/JuanPabloRP/score-flix',
 			},
 			{
 				id: nanoid(),
