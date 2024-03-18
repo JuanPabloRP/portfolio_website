@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Navbar from './Navbar';
-import HeaderStyled from './Header';
+import Header from './Header';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
@@ -15,19 +15,6 @@ const Home = () => {
 	const handleOpenNavbar = () => setOpenNavbar(!openNavbar);
 
 	const handleNavbarHeight = (height) => setNavbarHeight(height);
-
-	/* useEffect(() => {
-		console.log('Home ' + NAVBAR_HEIGHT);
-	}); */
-
-	/*
-	const handleNavLinkClick = (e) => {
-		e.preventDefault();
-		const targetId = e.target.getAttribute('href');
-		const targetElement = document.querySelector(targetId);
-		targetElement.scrollIntoView({ behavior: 'smooth' });
-	};
-	*/
 
 	return (
 		<div className="bg-black text-white">
@@ -49,17 +36,19 @@ const Home = () => {
 			<Navbar
 				onMeasure={handleNavbarHeight}
 				handleOpenNavbar={handleOpenNavbar}
+				openNavbar={openNavbar}
+				setOpenNavbar={setOpenNavbar}
 			/>
 
-			<main className={``}>
-				
-				<HeaderStyled NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
-
-				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
+			<main className={`overflow-hidden`}>
+				<Header NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
 				<Projects NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
+				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
+
 				<Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
+				
 			</main>
 		</div>
 	);

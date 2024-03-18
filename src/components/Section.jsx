@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
 const SectionStyled = ({ SCROLL_MARGIN_TOP }) => {

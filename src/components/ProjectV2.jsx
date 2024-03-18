@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+
 import { ButtonCard } from './Button';
 import Tag from './Tag';
 
 const ProjectV2 = ({ image, name, tags, links }) => {
-	const ArticleStyled = styled.article`
+	/* const ArticleStyled = styled.article`
 		box-shadow: inset 0px 0px 7px 0px #00adb5, 0px 0px 7px 0px #00adb5;
 		&:hover > div {
 			opacity: 0.9;
@@ -13,12 +13,17 @@ const ProjectV2 = ({ image, name, tags, links }) => {
 		&:hover > img {
 			opacity: 0.4;
 		}
-	`;
+	`; */
 
 	return (
 		<li>
-			<ArticleStyled className="relative max-w-sm overflow-hidden rounded-md shadow-md shadow-blue border-2 border-white box-content p-2">
-				<h3 className="text-center p-2 text-2xl">{name}</h3>
+			<article
+				className="relative max-w-sm overflow-hidden rounded-md shadow-md shadow-blue border-2 border-white box-content p-2"
+				style={{
+					boxShadow: 'inset 0px 0px 7px 0px #00adb5, 0px 0px 7px 0px #00adb5',
+				}}
+			>
+				{/* 	<h3 className="text-center p-2 text-2xl">{name}</h3> */}
 				<img
 					src={image}
 					alt={name}
@@ -35,11 +40,11 @@ const ProjectV2 = ({ image, name, tags, links }) => {
 						{links
 							? links.map(({ id, name, link }) => (
 									<ButtonCard key={id} name={name} link={link} />
-							))
+							  ))
 							: null}
 					</div>
 				</div>
-			</ArticleStyled>
+			</article>
 		</li>
 	);
 };

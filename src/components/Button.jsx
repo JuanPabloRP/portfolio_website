@@ -11,11 +11,9 @@ export const ButtonCard = ({ name, link }) => {
 				href={link}
 				target="_blank"
 				rel="noreferrer"
-				className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-pink to-blue group-hover:from-pink group-hover:to-blue hover:text-white"
+				className="outline-none px-4 py-2 font-medium rounded-md border text-center dark:border-neutral-400 dark:text-neutral-400 dark:hover:border-white dark:hover:text-white dark:focus:border-blue dark:focus:text-blue "
 			>
-				<span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-black rounded-md group-hover:bg-opacity-0">
-					{name}
-				</span>
+				{name}
 			</a>
 		</>
 	);

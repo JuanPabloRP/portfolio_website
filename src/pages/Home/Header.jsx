@@ -1,109 +1,130 @@
-import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import { BsLinkedin, BsGithub, BsWhatsapp } from 'react-icons/bs';
-import { DARK_COLOR } from '../../styles/style';
 
-const HeaderStyled = ({ NAVBAR_HEIGHT }) => {
-	const Header = styled.header`
-		scroll-margin-top: ${NAVBAR_HEIGHT}px;
-		min-height: calc(100vh - ${NAVBAR_HEIGHT}px);
-		font-weight: 800;
-
-		& h2 {
-			text-transform: uppercase;
-			color: ${DARK_COLOR};
-			text-shadow: 0 0 5px #00adb5, 0 0 10px #00adb5;
-
-			& span:last-child {
-				color: white;
-
-				animation: changecolor 2s steps(17);
-			}
-
-			@keyframes changecolor {
-				from {
-					color: ${DARK_COLOR};
-					text-shadow: 0 0 3px #00adb5, 0 0 7px #fb2576;
-				}
-
-				to {
-					text-shadow: 0 0 3px #fb2576, 0 0 7px #00adb5;
-					color: #fff;
-				}
-			}
-		}
-
-		& p {
-			display: block;
-			font-family: monospace;
-			white-space: nowrap;
-			border-right: 4px solid;
-			width: 17ch;
-			text-shadow: 0 0 30px #fb2576;
-			animation: typing 2s steps(17), blink 0.5s infinite step-end alternate;
-			overflow: hidden;
-			text-align: center;
-		}
-
-		@keyframes typing {
-			from {
-				width: 0;
-			}
-		}
-
-		@keyframes blink {
-			50% {
-				border-color: transparent;
-			}
-		}
-	`;
-
+const Header = ({ NAVBAR_HEIGHT }) => {
 	return (
-		<Header
+		<header
 			id="header"
-			className=" flex items-center justify-center flex-col space-y-5"
+			className={`min-h-screen flex items-center justify-center flex-col space-y-5 font-extrabold overflow-hidden `}
+			style={{
+				scrollMarginTop: NAVBAR_HEIGHT,
+				minHeight: `calc(100vh - ${NAVBAR_HEIGHT}px)`,
+			}}
 		>
-			<h2 className=" flex flex-wrap content-center justify-center text-center text-4xl w-auto h-auto max-w-6xl md:text-5xl lg:text-6xl md:mx-auto ">
-				<span className="md:pr-4">Hey! I am </span>
-				<span>Juan Pablo Roldan Patiño</span>
-			</h2>
-			<p className="text-pink text-3xl text-center mx-auto lg:text-4xl">
-				Sofware Developer
-			</p>
+			<section className="animate-jump-in animate-once animate-duration-500">
+				<h2
+					className=" flex flex-col flex-wrap content-center justify-center text-center text-4xl w-auto h-auto max-w-6xl md:text-5xl lg:text-6xl md:mx-auto uppercase 0 "
+					style={{ textShadow: '0 0 5px #00adb5, 0 0 10px #00adb5' }}
+				>
+					<span className="md:pr-4 text-black text-5xl">Hey! I am </span>
+					<span>Juan Pablo Roldan Patiño</span>
+				</h2>
+				<p
+					className="mt-3 text-pink text-3xl text-center mx-auto lg:text-4xl"
+					style={{ textShadow: '0 0 30px #fb2576' }}
+				>
+					Software Developer
+				</p>
+				<footer className="flex  md:flex-row items-center justify-center py-5 space-x-4">
+					<a
+						className="text-blue hover:opacity-75 hover:scale-95"
+						href="https://www.linkedin.com/in/juan-pablo-rold%C3%A1n-pati%C3%B1o/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							className="icon icon-tabler icon-tabler-brand-linkedin w-8 h-8 md:w-10 md:h-10"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							strokeWidth="2"
+							stroke="currentColor"
+							fill="none"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+							<path d="M8 11l0 5" />
+							<path d="M8 8l0 .01" />
+							<path d="M12 16l0 -5" />
+							<path d="M16 16v-3a2 2 0 0 0 -4 0" />
+						</svg>
+					</a>
+					<a
+						href="https://github.com/JuanPabloRP"
+						className="text-pink hover:opacity-75 hover:scale-95"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							className="icon icon-tabler icon-tabler-brand-github w-8 h-8 md:w-10 md:h-10"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							strokeWidth="2"
+							stroke="currentColor"
+							fill="none"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+						</svg>
+					</a>
 
-			<div className="flex  md:flex-row items-center justify-center py-5 space-x-4">
-				<a
-					className="text-blue hover:opacity-75 hover:scale-95"
-					href="https://www.linkedin.com/in/juan-pablo-rold%C3%A1n-pati%C3%B1o/"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<BsLinkedin className="w-8 h-8 md:w-9 md:h-9" />
-				</a>
-				<a
-					href="https://github.com/JuanPabloRP"
-					className="text-pink hover:opacity-75 hover:scale-95"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<BsGithub className="w-8 h-8 md:w-9 md:h-9" />
-				</a>
+					<a
+						className="text-white hover:opacity-75 hover:scale-95"
+						href="/src/assets/pdf/Hoja de vida Juan Pablo Roldan Patiño.pdf"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							className="icon icon-tabler icon-tabler-file-cv w-8 h-8 md:w-10 md:h-10 "
+							width="24"
+							height="24"
+							strokeWidth="2"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							fill="none"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M14 3v4a1 1 0 0 0 1 1h4" />
+							<path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+							<path d="M11 12.5a1.5 1.5 0 0 0 -3 0v3a1.5 1.5 0 0 0 3 0" />
+							<path d="M13 11l1.5 6l1.5 -6" />
+						</svg>
+					</a>
+				</footer>
+			</section>
 
-				<a
-					className="text-white hover:opacity-75 hover:scale-95"
-					href="https://wa.link/1kjv96"
-					target="_blank"
-					rel="noreferrer"
-				>
-					<BsWhatsapp className="w-8 h-8 md:w-9 md:h-9" />
-				</a>
-			</div>
-		</Header>
+			{/* <svg
+				xmlns="http://www.w3.org/2000/svg"
+				className="icon icon-tabler icon-tabler-arrow-down animate-bounce animate-infinite animate-duration-500 animate-delay-0"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				strokeWidth="1.5"
+				stroke="currentColor"
+				fill="none"
+				strokeLinecap="round"
+				strokeLinejoin="round"
+			>
+				<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+				<path d="M12 5l0 14" />
+				<path d="M18 13l-6 6" />
+				<path d="M6 13l6 6" />
+			</svg> */}
+		</header>
 	);
 };
 
-HeaderStyled.propTypes = {
+Header.propTypes = {
 	NAVBAR_HEIGHT: PropTypes.number.isRequired,
 };
 
-export default HeaderStyled;
+export default Header;

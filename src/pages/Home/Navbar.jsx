@@ -1,29 +1,19 @@
 import { useState, useEffect, useRef } from 'react';
-import { HiMenu, HiX, HiOutlineBadgeCheck } from 'react-icons/hi';
 import PropTypes from 'prop-types';
 
-
-const Navbar = ({ onMeasure, handleOpenNavbar }) => {
+const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 	const [activeSection, setActiveSection] = useState('');
-
 	const navbarRef = useRef(null);
 
 	//DO NOT add a dependency, just [] because this only needs to run the first time
 	useEffect(() => {
-		const height = 68 || navbarRef?.current?.getBoundingClientRect()?.height;
+		window.scrollTo(0, 0);
+		const height = navbarRef?.current?.getBoundingClientRect()?.height || 68;
 		onMeasure(height);
-		//console.log(height);
-		setActiveSection('header');
+		console.log(height);
+		//console.log(navbarRef?.current?.getBoundingClientRect()?.height);
+		setActiveSection((prev)=>(prev || 'header'));
 	}, []);
-
-	//estado para manejar cuando esta abierto el navbar (mobile)
-	const [open, setOpen] = useState(false);
-	const handleOpen = () => {
-		handleOpenNavbar(setOpen(!open));
-	};
-
-	// When you click on an anchor (when in mobile mode), the menu will close after that
-	const closeDropDown = () => handleOpenNavbar(setOpen(false));
 
 	const links = [
 		{
@@ -31,12 +21,12 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 			route: 'header',
 		},
 		{
-			label: 'About',
-			route: 'about',
-		},
-		{
 			label: 'Projects',
 			route: 'projects',
+		},
+		{
+			label: 'About',
+			route: 'about',
 		},
 		{
 			label: 'Contact',
@@ -44,21 +34,18 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 		},
 	];
 
-	//
-
 	const handleNavLinkClick = (event, route) => {
 		event.preventDefault();
 		setActiveSection(route);
-		closeDropDown();
-
+		handleOpenNavbar();
+		if(route === 'header') return window.scrollTo(0, 0);
 		const section = document.getElementById(route);
 		section.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	//
+	/* 
 	// I added this because when you click on an anchor, I need that section to be below the navbar
 	const ADDITIONAL_SCROLL = 69;
-
 	useEffect(() => {
 		const handleScroll = () => {
 			const headerSection = document.getElementById('header');
@@ -99,71 +86,115 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 			window.removeEventListener('scroll', handleScroll);
 		};
 	}, []);
+ */
 
 	return (
 		<nav
 			ref={navbarRef}
-			className="box-border bg-black text-white p-3 w-full sticky top-0 z-50 md:flex md:justify-evenly md:content-center md:p-2"
+			className=" box-border bg-black text-white p-3 w-full sticky top-0 z-40 md:flex md:justify-evenly md:content-center md:p-2"
 		>
-			<div className="nav__leftContainer w-full flex justify-between content-center  text-lg py-2 md:w-full md:py-3">
+			<section className="w-full flex justify-between content-center text-lg py-2 md:w-full md:py-3">
 				<h3 className="text-blue w-full flex space-x-1">
 					<span className="">Juan Pablo</span>
-					<HiOutlineBadgeCheck className="h-auto w-5" />
 				</h3>
 
-				<button onClick={handleOpen} className="text-blue text-2xl md:hidden">
-					{open === false ? <HiMenu /> : <HiX />}
+				<button
+					onClick={handleOpenNavbar}
+					className="text-blue text-2xl md:hidden"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						className="icon icon-tabler icon-tabler-menu-2"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						strokeWidth="1.5"
+						stroke="currentColor"
+						fill="none"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+					>
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path d="M4 6l16 0" />
+						<path d="M4 12l16 0" />
+						<path d="M4 18l16 0" />
+					</svg>
 				</button>
-			</div>
+			</section>
 
-			<div className="nav__right flex content-center justify-center pr-3">
-				{open === false ? (
-					<ul
-						className={`py-3 content-center hidden md:inline md:w-full md:justify-between md:space-x-5`}
+			{/* Menu for small devices */}
+			<section
+				className={`${
+					openNavbar ? 'block' : 'hidden'
+				} absolute top-0 left-0 w-screen h-screen z-50 md:hidden dark:bg-black flex flex-col justify-center items-center text-2xl text-blue`}
+			>
+				<button onClick={() => handleOpenNavbar()}>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						className="icon icon-tabler icon-tabler-x"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						strokeWidth="1.5"
+						stroke="currentColor"
+						fill="none"
+						strokeLinecap="round"
+						strokeLinejoin="round"
 					>
-						{links.map(({ label, route }) => (
-							<li
-								key={route}
-								className={`py-1  md:inline  ${
-									activeSection === route
-										? 'text-pink border-b-pink border-solid border-b-2'
-										: 'text-blue'
-								}`}
+						<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+						<path d="M18 6l-12 12" />
+						<path d="M6 6l12 12" />
+					</svg>
+				</button>
+				<ul
+					className={`py-3 flex text-center content-center flex-wrap flex-col md:inline md:w-full md:justify-between md:space-x-5`}
+				>
+					{links.map(({ label, route }) => (
+						<li
+							key={route}
+							className={`py-1 md:inline  ${
+								activeSection === route
+									? 'text-pink border-b-pink border-solid border-b-2'
+									: 'text-blue'
+							}`}
+						>
+							<a
+								href={`#${route}`}
+								onClick={(e) => handleNavLinkClick(e, route)}
+								className="w-full inline"
 							>
-								<a
-									href={`#${route}`}
-									onClick={(event) => handleNavLinkClick(event, route)}
-									className="w-full inline"
-								>
-									{label}
-								</a>
-							</li>
-						))}
-					</ul>
-				) : (
-					<ul
-						className={`py-3 flex text-center content-center flex-wrap flex-col md:inline md:w-full md:justify-between md:space-x-5`}
-					>
-						{links.map(({ label, route }) => (
-							<li
-								key={route}
-								className={`py-1 md:inline  ${
-									activeSection === route
-										? 'text-pink border-b-pink border-solid border-b-2'
-										: 'text-blue'
-								}`}
+								{label}
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			{/* Menu for bigger devices */}
+			<section className=" flex content-center justify-center pr-3">
+				<ul
+					className={`py-3 hidden text-center content-center md:inline w-full space-x-5`}
+				>
+					{links.map(({ label, route }) => (
+						<li
+							key={route}
+							className={`py-1 md:inline  ${
+								activeSection === route
+									? 'text-pink border-b-pink border-solid border-b-2'
+									: 'text-blue'
+							}`}
+						>
+							<a
+								href={`#${route}`}
+								onClick={(e) => handleNavLinkClick(e, route)}
+								className="w-full inline"
 							>
-								<a
-									href={`#${route}`}
-									onClick={(event) => handleNavLinkClick(event, route)}
-								>
-									{label}
-								</a>
-							</li>
-						))}
-					</ul>
-				)}
-			</div>
+								{label}
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
 		</nav>
 	);
 };
@@ -171,6 +202,8 @@ const Navbar = ({ onMeasure, handleOpenNavbar }) => {
 Navbar.propTypes = {
 	handleOpenNavbar: PropTypes.func.isRequired,
 	onMeasure: PropTypes.func.isRequired,
+	openNavbar: PropTypes.bool.isRequired,
+	setOpenNavbar: PropTypes.func.isRequired,
 };
 
 export default Navbar;

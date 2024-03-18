@@ -1,32 +1,26 @@
-//import React from 'react';
-import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import hello from '../../assets/svg/hello.svg';
 
 const About = ({ NAVBAR_HEIGHT }) => {
-	const About = styled.section`
-		box-sizing: border-box;
-		scroll-margin-top: ${NAVBAR_HEIGHT}px;
-		min-height: calc(100vh - ${NAVBAR_HEIGHT}px);
-		height: fit-content;
-
-		& article {
-			box-shadow: inset 0px 0px 7px 0px #fb2576, 0px 0px 7px 0px #fb2576;
-		}
-
-		& h2 {
-			color: white;
-			text-shadow: 0 0 3px #000, 0 0 7px #fb2576, 0 0 10px #fb2576;
-		}
-	`;
-
 	return (
-		<About
+		<main
 			id="about"
-			className="flex justify-center items-start py-3 md:items-center "
+			className={`flex justify-center items-start py-3 md:items-center min-h-screen`}
+			style={{
+				scrollMarginTop: NAVBAR_HEIGHT,
+				minHeight: `calc(100vh - ${NAVBAR_HEIGHT}px)`,
+			}}
 		>
-			<article className="border-white border-solid border-[1px] rounded-md mx-2  p-3 max-w-4xl md:p-14 lg:p-20">
-				<h2 className="text-4xl text-center font-black uppercase text-black p-5 tracking-wide">
+			<article
+				className="border-white border-solid border-[1px] rounded-md mx-2  p-3 max-w-4xl md:p-14 lg:p-20 "
+				style={{ boxShadow: 'inset 0 0 7px 0 #fb2576,0 0 7px 0 #fb2576' }}
+			>
+				<h2
+					className="text-4xl text-center font-black uppercase text-white p-5 tracking-wide "
+					style={{
+						textShadow: '0 0 3px #000, 0 0 7px #fb2576, 0 0 10px #fb2576',
+					}}
+				>
 					About me
 				</h2>
 				<div className="flex flex-col justify-center items-center lg:flex-row ">
@@ -48,7 +42,7 @@ const About = ({ NAVBAR_HEIGHT }) => {
 					</p>
 				</div>
 			</article>
-		</About>
+		</main>
 	);
 };
 
