@@ -12,7 +12,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 		onMeasure(height);
 		console.log(height);
 		//console.log(navbarRef?.current?.getBoundingClientRect()?.height);
-		setActiveSection((prev)=>(prev || 'header'));
+		setActiveSection((prev) => prev || 'header');
 	}, []);
 
 	const links = [
@@ -38,7 +38,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 		event.preventDefault();
 		setActiveSection(route);
 		handleOpenNavbar();
-		if(route === 'header') return window.scrollTo(0, 0);
+		if (route === 'header') return window.scrollTo(0, 0);
 		const section = document.getElementById(route);
 		section.scrollIntoView({ behavior: 'smooth' });
 	};
@@ -95,7 +95,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 		>
 			<section className="w-full flex justify-between content-center text-lg py-2 md:w-full md:py-3">
 				<h3 className="text-blue w-full flex space-x-1">
-					<span className="">Juan Pablo</span>
+					<span className="">JPRP&apos;s Portfolio</span>
 				</h3>
 
 				<button
