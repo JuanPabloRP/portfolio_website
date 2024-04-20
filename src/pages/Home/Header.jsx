@@ -76,7 +76,7 @@ const Header = ({ NAVBAR_HEIGHT }) => {
 
 					<a
 						className="text-white hover:opacity-75 hover:scale-95"
-						href="/src/assets/pdf/Hoja de vida Juan Pablo Roldan Patiño.pdf"
+						href="./src/assets/pdf/Hoja de vida Juan Pablo Roldan Patiño.pdf"
 						target="_blank"
 						rel="noreferrer"
 					>
