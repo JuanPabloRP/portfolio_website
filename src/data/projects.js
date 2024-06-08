@@ -7,8 +7,30 @@ import imgGestionProyectos from '../assets/img/imgGestionProyectos.webp';
 import imgProjectCiclo3 from '../assets/img/imgProjectCiclo3.webp';
 import imgProjectSura from '../assets/img/imgProjectSura.png';
 import imgProjectScoreFlix from '../assets/img/imgProjectScoreFlix.png';
+import imgProjectGrabarPantalla from '../assets/img/imgProjectGrabarPantalla.webp';
 
 export const projects = [
+	{
+		id: nanoid(),
+		image: imgProjectGrabarPantalla,
+		name: 'Grabar pantalla',
+		tags: [
+			{ id: nanoid(), tag: 'React' },
+			{ id: nanoid(), tag: 'Tailwind' },
+		],
+		links: [
+			{
+				id: nanoid(),
+				name: 'Code',
+				link: 'https://github.com/JuanPabloRP/screen-recorder',
+			},
+			{
+				id: nanoid(),
+				name: 'Website',
+				link: 'https://grabar-pantalla.vercel.app/',
+			},
+		],
+	},
 	{
 		id: nanoid(),
 		image: imgProjectScoreFlix,
@@ -52,7 +74,7 @@ export const projects = [
 			},
 		],
 	},
-	{
+	/* {
 		id: nanoid(),
 		image: imgProjectPortfolio,
 		name: 'Portfolio Web',
@@ -73,7 +95,7 @@ export const projects = [
 				link: 'https://github.com/JuanPabloRP/portfolio_website',
 			},
 		],
-	},
+	}, */
 	{
 		id: nanoid(),
 		image: imgFilantropiaEafit,
