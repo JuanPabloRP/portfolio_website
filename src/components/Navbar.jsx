@@ -10,7 +10,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 		window.scrollTo(0, 0);
 		const height = navbarRef?.current?.getBoundingClientRect()?.height || 68;
 		onMeasure(height);
-		console.log(height);
+		//console.log(height);
 		//console.log(navbarRef?.current?.getBoundingClientRect()?.height);
 		setActiveSection((prev) => prev || 'header');
 	}, []);
@@ -91,11 +91,11 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 	return (
 		<nav
 			ref={navbarRef}
-			className="max-w-5xl mx-auto py-3 px-5 md:rounded-md box-border  text-white  w-full sticky top-0 md:top-5 z-40 md:flex md:justify-evenly md:content-center backdrop-blur-xl"
+			className="max-w-5xl mx-auto py-2 px-5 md:rounded-full text-white w-full sticky top-0 md:top-5 z-40 md:flex md:justify-evenly md:content-center backdrop-blur-xl lg:border lg:border-blue/20"
 		>
 			<section className="w-full flex justify-between content-center text-lg py-2 md:w-full md:py-3">
-				<h3 className="text-blue w-full flex space-x-1">
-					<span className="">JPRP&apos;s Portfolio</span>
+				<h3 className="font-bold text-3xl text-blue w-full flex space-x-1">
+					JPRP
 				</h3>
 
 				<button
