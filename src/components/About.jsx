@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import hello from '../../assets/svg/hello.svg';
+import hello from '../assets/svg/hello.svg';
 
 const About = ({ NAVBAR_HEIGHT }) => {
 	return (

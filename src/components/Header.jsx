@@ -11,16 +11,23 @@ const Header = ({ NAVBAR_HEIGHT }) => {
 			}}
 		>
 			<section className="animate-jump-in animate-once animate-duration-500">
-				<h2
-					className=" flex flex-col flex-wrap content-center justify-center text-center text-4xl w-auto h-auto max-w-6xl md:text-5xl lg:text-6xl md:mx-auto uppercase 0 "
-					style={{ textShadow: '0 0 5px #00adb5, 0 0 10px #00adb5' }}
-				>
-					<span className="md:pr-4 text-black text-5xl">Hey! I am </span>
-					<span>Juan Pablo Roldan Patiño</span>
+				<h2 className=" flex flex-col flex-wrap content-center justify-center text-center text-4xl w-auto h-auto max-w-6xl md:text-5xl lg:text-6xl md:mx-auto uppercase 0 ">
+					<span
+						className="md:pr-4 text-5xl text-blue"
+						
+					>
+						Hey! I am{' '}
+					</span>
+					<span
+						className=""
+						
+					>
+						Juan Pablo Roldan Patiño
+					</span>
 				</h2>
 				<p
 					className="mt-3 text-pink text-3xl text-center mx-auto lg:text-4xl"
-					style={{ textShadow: '0 0 30px #fb2576' }}
+					
 				>
 					Software Developer
 				</p>

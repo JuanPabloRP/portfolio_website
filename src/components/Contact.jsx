@@ -1,4 +1,4 @@
-import ContactForm from '../../components/ContactForm';
+import ContactForm from './ContactForm';
 import PropTypes from 'prop-types';
 
 const Contact = ({ NAVBAR_HEIGHT }) => {

@@ -91,7 +91,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 	return (
 		<nav
 			ref={navbarRef}
-			className=" box-border bg-black text-white p-3 w-full sticky top-0 z-40 md:flex md:justify-evenly md:content-center md:p-2"
+			className="max-w-5xl mx-auto py-3 px-5 md:rounded-md box-border  text-white  w-full sticky top-0 md:top-5 z-40 md:flex md:justify-evenly md:content-center backdrop-blur-xl"
 		>
 			<section className="w-full flex justify-between content-center text-lg py-2 md:w-full md:py-3">
 				<h3 className="text-blue w-full flex space-x-1">

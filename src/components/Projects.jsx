@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import { projects } from '../../data/projects';
-import Project from '../../components/Project';
-import ProjectV4 from '../../components/ProjectV4';
+import { projects } from '../data/projects';
+//import Project from './Project';
+import Project from './ProjectV4';
+
 
 const Projects = ({ NAVBAR_HEIGHT }) => {
 	return (
@@ -31,7 +32,7 @@ const Projects = ({ NAVBAR_HEIGHT }) => {
 					<>
 						<ul className="flex flex-wrap justify-center items-center gap-7 ">
 							{projects.map(({ id, image, name, tags, links }) => (
-								<ProjectV4
+								<Project
 									key={id}
 									image={image}
 									name={name}

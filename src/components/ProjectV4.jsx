@@ -3,7 +3,7 @@ import Tag from './Tag';
 import { ButtonCard } from './Button';
 import { useState } from 'react';
 
-const ProjectV4 = ({ image, name, tags, links }) => {
+const Project = ({ image, name, tags, links }) => {
 	const [hovered, setHovered] = useState(false);
 
 	const handleHover = () => {
@@ -56,4 +56,4 @@ const ProjectV4 = ({ image, name, tags, links }) => {
 	);
 };
 
-export default ProjectV4;
+export default Project;
