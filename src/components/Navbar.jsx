@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
@@ -8,96 +8,88 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 	//DO NOT add a dependency, just [] because this only needs to run the first time
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		const height = navbarRef?.current?.getBoundingClientRect()?.height || 68;
+		const height = navbarRef?.current?.getBoundingClientRect()?.height || 78;
 		onMeasure(height);
 		//console.log(height);
 		//console.log(navbarRef?.current?.getBoundingClientRect()?.height);
 		setActiveSection((prev) => prev || 'header');
 	}, []);
 
-	const links = [
-		{
-			label: 'Home',
-			route: 'header',
-		},
-		{
-			label: 'Projects',
-			route: 'projects',
-		},
-		{
-			label: 'About',
-			route: 'about',
-		},
-		{
-			label: 'Contact',
-			route: 'contact',
-		},
-	];
+	const links = useMemo(
+		() => [
+			{
+				label: 'Inicio',
+				route: 'header',
+				samePage: true,
+			},
+			{
+				label: 'Proyectos',
+				route: 'projects',
+				samePage: true,
+			},
+			{
+				label: `Sobre mí`,
+				route: 'about',
+				samePage: true,
+			},
+			{
+				label: 'Contáctame',
+				route: 'mailto:jpabloroldanp@gmail.com',
+				samePage: false,
+			},
+		],
+		[]
+	);
 
 	const handleNavLinkClick = (event, route) => {
 		event.preventDefault();
-		setActiveSection(route);
+
 		handleOpenNavbar();
 		if (route === 'header') return window.scrollTo(0, 0);
 		const section = document.getElementById(route);
 		section.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	/* 
-	// I added this because when you click on an anchor, I need that section to be below the navbar
-	const ADDITIONAL_SCROLL = 69;
 	useEffect(() => {
-		const handleScroll = () => {
-			const headerSection = document.getElementById('header');
-			const aboutSection = document.getElementById('about');
-			const projectsSection = document.getElementById('projects');
-			const contactSection = document.getElementById('contact');
+		const sections = links.map((link) => document.getElementById(link.route));
 
-			const scrollPosition = window.scrollY;
-
-			if (
-				(scrollPosition >= headerSection.offsetTop || scrollPosition >= 0) &&
-				scrollPosition + ADDITIONAL_SCROLL < aboutSection.offsetTop
-			) {
-				setActiveSection('header');
-			} else if (
-				scrollPosition + ADDITIONAL_SCROLL >= aboutSection.offsetTop &&
-				scrollPosition + ADDITIONAL_SCROLL < projectsSection.offsetTop
-			) {
-				setActiveSection('about');
-			} else if (
-				scrollPosition + ADDITIONAL_SCROLL >= projectsSection.offsetTop &&
-				scrollPosition + ADDITIONAL_SCROLL < contactSection.offsetTop
-			) {
-				setActiveSection('projects');
-			} else if (
-				scrollPosition + ADDITIONAL_SCROLL >=
-				contactSection.offsetTop
-			) {
-				setActiveSection('contact');
-			} else {
-				setActiveSection('');
-			}
+		const observerCallback = (entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					setActiveSection(entry.target.id);
+				}
+			});
 		};
 
-		window.addEventListener('scroll', handleScroll);
+		const observer = new IntersectionObserver(observerCallback, {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.3,
+		});
+
+		sections.forEach((section) => {
+			if (section) observer.observe(section);
+		});
 
 		return () => {
-			window.removeEventListener('scroll', handleScroll);
+			sections.forEach((section) => {
+				if (section) observer.unobserve(section);
+			});
 		};
-	}, []);
- */
+	}, [links]);
 
 	return (
 		<nav
 			ref={navbarRef}
-			className="max-w-5xl mx-auto py-2 px-5 md:rounded-full text-white w-full sticky top-0 md:top-5 z-40 md:flex md:justify-evenly md:content-center backdrop-blur-xl lg:border lg:border-blue/20"
+			className="max-w-xl mx-auto py-2 px-5 lg:py-0 lg:px-7 md:rounded-3xl text-white w-full sticky top-0 md:top-1 z-40 md:flex md:justify-evenly md:content-center backdrop-blur-3xl flex"
 		>
-			<section className="w-full flex justify-between content-center text-lg py-2 md:w-full md:py-3">
+			{/* <section className="w-full flex justify-between content-center text-lg py-1 md:w-full md:py-2">
 				<h3 className="font-bold text-3xl text-blue w-full flex space-x-1">
 					JPRP
 				</h3>
 
+			</section> */}
+			<section className="w-full flex justify-between items-end text-lg py-1 md:hidden">
 				<button
 					onClick={handleOpenNavbar}
 					className="text-blue text-2xl md:hidden"
@@ -126,7 +118,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 			<section
 				className={`${
 					openNavbar ? 'block' : 'hidden'
-				} absolute top-0 left-0 w-screen h-screen z-50 md:hidden dark:bg-black flex flex-col justify-center items-center text-2xl text-blue`}
+				} absolute top-0 left-0 w-screen h-screen z-50 md:hidden  flex flex-col justify-center items-center text-2xl text-blue backdrop-filter backdrop-blur-3xl bg-opacity-95 bg-neutral-900`}
 			>
 				<button onClick={() => handleOpenNavbar()}>
 					<svg
@@ -149,7 +141,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 				<ul
 					className={`py-3 flex text-center content-center flex-wrap flex-col md:inline md:w-full md:justify-between md:space-x-5`}
 				>
-					{links.map(({ label, route }) => (
+					{links.map(({ label, route, samePage }) => (
 						<li
 							key={route}
 							className={`py-1 md:inline  ${
@@ -159,7 +151,7 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 							}`}
 						>
 							<a
-								href={`#${route}`}
+								href={`${samePage ? `#${route}` : route}`}
 								onClick={(e) => handleNavLinkClick(e, route)}
 								className="w-full inline"
 							>
@@ -171,23 +163,23 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 			</section>
 
 			{/* Menu for bigger devices */}
-			<section className=" flex content-center justify-center pr-3">
+			<section className="  pr-3">
 				<ul
-					className={`py-3 hidden text-center content-center md:inline w-full space-x-5`}
+					className={`py-3 hidden md:flex items-center justify-center text-center w-full gap-x-5`}
 				>
-					{links.map(({ label, route }) => (
+					{links.map(({ label, route, samePage }) => (
 						<li
 							key={route}
-							className={`py-1 md:inline  ${
+							className={`py-1 w-full flex   ${
 								activeSection === route
 									? 'text-pink border-b-pink border-solid border-b-2'
 									: 'text-blue'
 							}`}
 						>
 							<a
-								href={`#${route}`}
-								onClick={(e) => handleNavLinkClick(e, route)}
-								className="w-full inline"
+								href={`${samePage ? `#${route}` : route}`}
+								// onClick={(e) => handleNavLinkClick(e, route)}
+								className="w-full text-nowrap"
 							>
 								{label}
 							</a>

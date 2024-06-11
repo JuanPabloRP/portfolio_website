@@ -27,7 +27,7 @@ const WordRotate = ({
 	return (
 		<div className="overflow-hidden py-2">
 			<AnimatePresence mode="wait">
-				<motion.h1 key={words[index]} {...framerProps} className={className}>
+				<motion.h1 key={index} {...framerProps} className={className}>
 					{words[index]}
 				</motion.h1>
 			</AnimatePresence>
