@@ -1,12 +1,7 @@
 import { nanoid } from 'nanoid';
-import imgProjectPortfolio from '../assets/img/imgProjectPortfolio.webp';
 import imgFilantropiaEafit from '../assets/img/imgFilantropiaEafit.webp';
-import imgCrudLogin from '../assets/img/imgCrudLogin.webp';
-import imgGestionProjectBack from '../assets/img/imgGestionProjectBack.webp';
-import imgGestionProyectos from '../assets/img/imgGestionProyectos.webp';
-import imgProjectCiclo3 from '../assets/img/imgProjectCiclo3.webp';
-import imgProjectSura from '../assets/img/imgProjectSura.png';
-import imgProjectScoreFlix from '../assets/img/imgProjectScoreFlix.png';
+import imgProjectSura from '../assets/img/imgProjectSura.webp';
+import imgProjectScoreFlix from '../assets/img/imgProjectScoreFlix.webp';
 import imgProjectGrabarPantalla from '../assets/img/imgProjectGrabarPantalla.webp';
 
 export const projects = [
@@ -14,27 +9,24 @@ export const projects = [
 		id: nanoid(),
 		image: imgProjectGrabarPantalla,
 		name: 'Grabar pantalla',
+		description:
+			'Sitio web para grabar pantalla, audio y webcam. Se puede descargar el video grabado en formato webm.',
 		tags: [
 			{ id: nanoid(), tag: 'React' },
 			{ id: nanoid(), tag: 'Tailwind' },
 		],
-		links: [
-			{
-				id: nanoid(),
-				name: 'Code',
-				link: 'https://github.com/JuanPabloRP/screen-recorder',
-			},
-			{
-				id: nanoid(),
-				name: 'Website',
-				link: 'https://grabar-pantalla.vercel.app/',
-			},
-		],
+		link: {
+			id: nanoid(),
+			name: 'Website',
+			link: 'https://grabar-pantalla.vercel.app/',
+		},
 	},
 	{
 		id: nanoid(),
 		image: imgProjectScoreFlix,
 		name: 'ScoreFlix',
+		description:
+			'Plataforma para calificar y comentar películas y series. Se pueden ver las calificaciones de otros usuarios.',
 		tags: [
 			{ id: nanoid(), tag: 'React JS' },
 			{ id: nanoid(), tag: 'Tailwind' },
@@ -42,23 +34,18 @@ export const projects = [
 			{ id: nanoid(), tag: 'Express' },
 			{ id: nanoid(), tag: 'MongoDB' },
 		],
-		links: [
-			{
-				id: nanoid(),
-				name: 'Code',
-				link: 'https://github.com/JuanPabloRP/score-flix',
-			},
-			{
-				id: nanoid(),
-				name: 'Website',
-				link: 'https://score-flix.vercel.app/',
-			},
-		],
+		link: {
+			id: nanoid(),
+			name: 'Website',
+			link: 'https://score-flix.vercel.app/',
+		},
 	},
 	{
 		id: nanoid(),
 		image: imgProjectSura,
 		name: 'Prototipo para Sura',
+		description:
+			'Prototipo de aplicación web para Sura. Donde se guardaban alertas para predecir eventos futuros.',
 		tags: [
 			{ id: nanoid(), tag: 'React JS' },
 			{ id: nanoid(), tag: 'Tailwind' },
@@ -66,13 +53,11 @@ export const projects = [
 			{ id: nanoid(), tag: 'Spring' },
 			{ id: nanoid(), tag: 'MongoDB' },
 		],
-		links: [
-			{
-				id: nanoid(),
-				name: 'Code',
-				link: 'https://github.com/JuanPabloRP/eafit-backend.git',
-			},
-		],
+		link: {
+			id: nanoid(),
+			name: 'Code',
+			link: 'https://github.com/JuanPabloRP/eafit-backend.git',
+		},
 	},
 	/* {
 		id: nanoid(),
@@ -83,7 +68,7 @@ export const projects = [
 			{ id: nanoid(), tag: 'Tailwind' },
 			{ id: nanoid(), tag: 'Emotion' },
 		],
-		links: [
+		link: [
 			{
 				id: nanoid(),
 				name: 'Website',
@@ -100,26 +85,20 @@ export const projects = [
 		id: nanoid(),
 		image: imgFilantropiaEafit,
 		name: 'Filantropia EAFIT',
+		description: 'Sitio web para la fundación Filantropía EAFIT.',
 		tags: [
 			{ id: nanoid(), tag: 'Next JS' },
 			{ id: nanoid(), tag: 'React' },
 			{ id: nanoid(), tag: 'Sass' },
 			{ id: nanoid(), tag: 'Bootstrap' },
 		],
-		links: [
-			/* {
-				id: nanoid(),
-				name: 'web',
-				link: '#',
-			}, */
-			{
-				id: nanoid(),
-				name: 'Code',
-				link: 'https://github.com/nodo-eafit-frontend/gamma-equipo-2',
-			},
-		],
+		link: {
+			id: nanoid(),
+			name: 'Code',
+			link: 'https://gamma-equipo-2.vercel.app/',
+		},
 	},
-	{
+	/* {
 		id: nanoid(),
 		image: imgCrudLogin,
 		name: 'CRUD Login',
@@ -128,15 +107,13 @@ export const projects = [
 			{ id: nanoid(), tag: 'Windows Forms' },
 			{ id: nanoid(), tag: 'SQLite' },
 		],
-		links: [
-			{
-				id: nanoid(),
-				name: 'Code',
-				link: 'https://github.com/JaimeJaner/P_FINAL_CRUD-LOGIN_H_P_2',
-			},
-		],
-	},
-	{
+		link: {
+			id: nanoid(),
+			name: 'Code',
+			link: 'https://github.com/JaimeJaner/P_FINAL_CRUD-LOGIN_H_P_2',
+		},
+	}, */
+	/* {
 		id: nanoid(),
 		image: imgGestionProjectBack,
 		name: 'Gestión de proyectos backend',
@@ -148,15 +125,13 @@ export const projects = [
 			{ id: nanoid(), tag: 'TypeScript' },
 			{ id: nanoid(), tag: 'Apollo' },
 		],
-		links: [
-			{
-				id: nanoid(),
-				name: 'Code',
-				link: 'https://github.com/Devtambulos/GestionProyectos-Back',
-			},
-		],
-	},
-	{
+		link: {
+			id: nanoid(),
+			name: 'Code',
+			link: 'https://github.com/Devtambulos/GestionProyectos-Back',
+		},
+	}, */
+	/* {
 		id: nanoid(),
 		image: imgGestionProyectos,
 		name: 'Gestión de proyectos',
@@ -167,15 +142,13 @@ export const projects = [
 			{ id: nanoid(), tag: 'Material IU' },
 			{ id: nanoid(), tag: 'Apollo' },
 		],
-		links: [
-			{
-				id: nanoid(),
-				name: 'Code',
-				link: 'https://github.com/Devtambulos/GestionProyectosInvestigacion',
-			},
-		],
-	},
-	{
+		link: {
+			id: nanoid(),
+			name: 'Code',
+			link: 'https://github.com/Devtambulos/GestionProyectosInvestigacion',
+		},
+	}, */
+	/* {
 		id: nanoid(),
 		image: imgProjectCiclo3,
 		name: 'Muestra de productos',
@@ -185,12 +158,10 @@ export const projects = [
 			{ id: nanoid(), tag: 'ApiRest' },
 			{ id: nanoid(), tag: 'Axios' },
 		],
-		links: [
-			{
-				id: nanoid(),
-				name: 'Code',
-				link: 'https://github.com/CuriDevs/project-ciclo3',
-			},
-		],
-	},
+		link: {
+			id: nanoid(),
+			name: 'Code',
+			link: 'https://github.com/CuriDevs/project-ciclo3',
+		},
+	}, */
 ];

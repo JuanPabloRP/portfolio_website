@@ -18,11 +18,6 @@ const Project = ({ image, name, tags, links }) => {
 					{name}
 				</h3>
 
-				{/* <section className="flex flex-wrap space-x-1 items-center justify-center opacity-40">
-					<span className="text-blue">Made with: </span>
-					{tags ? tags.map(({ id, tag }) => <Tag key={id} tag={tag} />) : null}
-				</section> */}
-
 				<footer className="flex items-center justify-around py-2 ">
 					{links
 						? links.map(({ id, name, link }) => (

@@ -6,6 +6,7 @@ import Projects from '../../components/Projects';
 import Contact from '../../components/Contact';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CallToAction from '../../components/CallToAction';
 
 const Home = () => {
 	const [openNavbar, setOpenNavbar] = useState(false);
@@ -16,7 +17,7 @@ const Home = () => {
 	const handleNavbarHeight = (height) => setNavbarHeight(height);
 
 	return (
-		<div className="bg-black text-white">
+		<div className=" text-white bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]">
 			<ToastContainer
 				position="top-right"
 				autoClose={5000}
@@ -39,14 +40,16 @@ const Home = () => {
 				setOpenNavbar={setOpenNavbar}
 			/>
 
-			<main className={`overflow-hidden`}>
+			<main className={`overflow-hidden `}>
 				<Header NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
+
+				{/* <CallToAction NAVBAR_HEIGHT={NAVBAR_HEIGHT} /> */}
 
 				<Projects NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
 				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
-				<Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
+				{/* <Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT} /> */}
 			</main>
 		</div>
 	);
