@@ -2,16 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html,
 body {
-  background: #000;
-  scroll-behavior: smooth;
+	background: #000;
+	scroll-behavior: smooth;
 }
 
-/*
 ::selection {
-  background-color: aqua;
-  color: #000;
+	background-color: #00adb5;
+	color: #fff;
 }
-*/

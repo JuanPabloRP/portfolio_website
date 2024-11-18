@@ -5,13 +5,10 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 	const [activeSection, setActiveSection] = useState('');
 	const navbarRef = useRef(null);
 
-	//DO NOT add a dependency, just [] because this only needs to run the first time
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		const height = navbarRef?.current?.getBoundingClientRect()?.height || 78;
 		onMeasure(height);
-		//console.log(height);
-		//console.log(navbarRef?.current?.getBoundingClientRect()?.height);
 		setActiveSection((prev) => prev || 'header');
 	}, []);
 
@@ -20,6 +17,11 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 			{
 				label: 'Inicio',
 				route: 'header',
+				samePage: true,
+			},
+			{
+				label: `Experiencia laboral`,
+				route: 'work-experiences',
 				samePage: true,
 			},
 			{
@@ -83,12 +85,6 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 			ref={navbarRef}
 			className="max-w-xl mx-auto py-2 px-5 lg:py-0 lg:px-7 md:rounded-3xl text-white w-full sticky top-0 md:top-1 z-40 md:flex md:justify-evenly md:content-center backdrop-blur-3xl flex"
 		>
-			{/* <section className="w-full flex justify-between content-center text-lg py-1 md:w-full md:py-2">
-				<h3 className="font-bold text-3xl text-blue w-full flex space-x-1">
-					JPRP
-				</h3>
-
-			</section> */}
 			<section className="w-full flex justify-between items-end text-lg py-1 md:hidden">
 				<button
 					onClick={handleOpenNavbar}
@@ -148,7 +144,8 @@ const Navbar = ({ onMeasure, handleOpenNavbar, openNavbar, setOpenNavbar }) => {
 								activeSection === route
 									? 'text-pink border-b-pink border-solid border-b-2'
 									: 'text-blue'
-							}`}
+							}
+							`}
 						>
 							<a
 								href={`${samePage ? `#${route}` : route}`}

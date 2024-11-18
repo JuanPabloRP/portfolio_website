@@ -3,10 +3,9 @@ import Navbar from '../../components/Navbar';
 import Header from '../../components/Header';
 import About from '../../components/About';
 import Projects from '../../components/Projects';
-import Contact from '../../components/Contact';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CallToAction from '../../components/CallToAction';
+import WorkExperiences from '../../components/WorkExperiences';
 
 const Home = () => {
 	const [openNavbar, setOpenNavbar] = useState(false);
@@ -43,13 +42,11 @@ const Home = () => {
 			<main className={`overflow-hidden `}>
 				<Header NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
-				{/* <CallToAction NAVBAR_HEIGHT={NAVBAR_HEIGHT} /> */}
+				<WorkExperiences NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
 				<Projects NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
 
 				<About NAVBAR_HEIGHT={NAVBAR_HEIGHT} />
-
-				{/* <Contact NAVBAR_HEIGHT={NAVBAR_HEIGHT} /> */}
 			</main>
 		</div>
 	);

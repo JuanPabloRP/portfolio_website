@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useRef } from 'react';
 
 const WordRotate = ({
 	words,
@@ -16,13 +17,19 @@ const WordRotate = ({
 }) => {
 	const [index, setIndex] = useState(0);
 
+	const prevWordsRef = useRef(words);
+
 	useEffect(() => {
+		if (prevWordsRef.current !== words) {
+			prevWordsRef.current = words;
+			clearInterval(interval);
+		}
 		const interval = setInterval(() => {
 			setIndex((prev) => (prev + 1) % words.length);
 		}, duration);
 
 		return () => clearInterval(interval);
-	}, [duration, words]);
+	}, [duration]);
 
 	return (
 		<div className="overflow-hidden py-2">

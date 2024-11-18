@@ -45,54 +45,75 @@ const About = ({ NAVBAR_HEIGHT }) => {
 				<div className="flex flex-col justify-center items-center lg:flex-row ">
 					<section className="flex flex-col gap-2 text-pretty">
 						<p>
-							Soy un desarrollador de software,{' '}
+							<span>Soy</span>{' '}
 							<strong className="text-pink/70">
-								{' '}
-								interesado en adquirir experiencia laboral
+								
+								desarrollador de software FullStack{' '}
 							</strong>
-							. Cuento con{' '}
+							{''}
+							<span>
+								con sólida experiencia en lenguajes de programación como
+							</span>{' '}
 							<strong className="text-pink/70">
-								{' '}
-								conocimientos en lenguajes de programación como JavaScript, C#,
-								Python y Java
-							</strong>
-							, además de dominar lenguajes de marcado y consulta como HTML, CSS
-							y SQL. Hago uso de librerías y frameworks avanzados como{' '}
+								JavaScript, Java, C# y Python.
+							</strong>{' '}
+							<span>Además, domino lenguajes de marcado y consulta como</span>{' '}
+							<strong className="text-pink/70">HTML, CSS y SQL.</strong>{' '}
+							<span>
+								Trabajo con librerías y frameworks avanzados, incluyendo
+							</span>{' '}
 							<strong className="text-pink/70">
-								{' '}
-								ReactJS, .NET, SpringBoot, TailwindCSS y Bootstrap.
+								ReactJS, Angular, .NET, Spring Boot, Quarkus, TailwindCSS y
+								Bootstrap.
 							</strong>
 						</p>
 						<p>
-							Además, tengo experiencia en el manejo de bases de datos SQL como
-							MySQL, SQL Server y PostgreSQL, así como en bases de datos NoSQL
-							como MongoDB.
+							Tengo experiencia en la gestión de bases de datos SQL como{' '}
+							<strong className="text-pink/70">
+								MySQL, SQL Server y PostgreSQL,{' '}
+							</strong>
+							así como en bases de datos NoSQL como{' '}
+							<strong className="text-pink/70">MongoDB </strong>, lo que me
+							permite abordar proyectos con diferentes requerimientos
+							tecnológicos.
 						</p>
 						<p>
-							Actualmente,{' '}
-							<strong className="text-pink/70">
-								{' '}
-								estoy cursando la Tecnología en Desarrollo de Software{' '}
-							</strong>{' '}
-							y he participado en reconocidos bootcamps, diplomados y cursos en
-							Colombia, como lo son Misión TIC y NODO EAFIT, donde{' '}
-							<strong className="text-pink/70">
-								{' '}
-								he tenido la oportunidad de realizar proyectos empresariales{' '}
-							</strong>{' '}
-							para EAFIT y Suramericana.
+							Actualmente, estoy cursando la{' '}
+							<strong className="text-pink/70">Ingeniería de Software </strong>{' '}
+							<span>
+								y soy{' '}
+								<strong className="text-pink/70">
+									graduado en la Tecnología en Desarrollo de Software.{' '}
+								</strong>
+								He participado en reconocidos programas de formación en
+								Colombia, como Misión TIC y NODO EAFIT, donde{' '}
+								<strong className="text-pink/70">
+									he desarrollado proyectos empresariales
+								</strong>{' '}
+								para organizaciones como{' '}
+								<strong className="text-pink/70">EAFIT</strong> y{' '}
+								<strong className="text-pink/70">Suramericana.</strong>
+							</span>
 						</p>
 					</section>
 					<img
 						src={hello}
 						alt="Hello image"
-						className="max-w-xs w-56 p-2 md:mr-4"
+						className="max-w-md w-56 p-2 md:mr-4"
 					/>
 				</div>
 			</article>
 		</main>
 	);
 };
+/*
+   
+
+
+
+ 
+
+*/
 
 About.propTypes = {
 	NAVBAR_HEIGHT: PropTypes.number.isRequired,
